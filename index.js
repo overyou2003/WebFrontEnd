@@ -11,7 +11,8 @@ const { render } = require('ejs');
 
 
 
-const base_url = "http://localhost:3000";
+//const base_url = "http://localhost:3000";
+const base_url = "http://node60365-projects.proen.app.ruk-com.cloud";
 
 var username
 var id_user

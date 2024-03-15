@@ -114,50 +114,49 @@
       </section>
 
       <!-- End of Blogs Section -->
-      <div class="text-like">LIKE</div>
-    <form action="#"> 
-        <div class="content">
-          <button type="submit" id="" name="" class="like-button"><span class="heart"></span></button>
-        </div>
-    </form>
+        <div class="text-like">LIKE</div>
+      <form action="#"> 
+          <div class="content">
+            <button type="submit" id="" name="" class="like-button"><span class="heart"></span></button>
+          </div>
+      </form>
 
 
-      <!-- End of popular posts section -->
+        <!-- End of popular posts section -->
 
-    <div class="contact-container">
-        <h2>COMMENT</h2>
-        <span class="person_comment"><ion-icon name="person"></ion-icon></span>
-        <form action="/Comment_Post" method="post">
-            <div class="name_comment">
-                <%=nameuser%>
-            </div>
-          <textarea
-            name="comment"
-            id="comment"
-            cols="30"
-            rows="10"
-            placeholder="Your Message"
-          ></textarea>
+      <div class="contact-container">
+          <h2>COMMENT</h2>
+          <span class="person_comment"><ion-icon name="person"></ion-icon></span>
+          <form action="/Comment_Post" method="post">
+              <div class="name_comment">
+                  <%=nameuser%>
+              </div>
+            <textarea
+              name="comment"
+              id="comment"
+              cols="30"
+              rows="10"
+              placeholder="Your Message"
+            ></textarea>
 
-          <button type="submit">Send</button><br><br>
-        </form>
-        <hr>
-        <% for(let i = 0; i < comment.length; i++){ %>
-        <div class="name_onComment">
-                <%if(post_id == comment[i].post_id){ %>
-                    <span class="person_comment"><ion-icon name="person"></ion-icon></span>
-                    <%= user[comment[i].user_id -1 ].username%> 
+            <button type="submit">Send</button><br><br>
+          </form>
+          <hr>
+          <% for(let i = 0; i < comment.length; i++){ %>
+            <div class="name_onComment">
+                  <%if(post_id == comment[i].post_id){ %>
+                      <span class="person_comment"><ion-icon name="person"></ion-icon></span>
+                      <%= user[comment[i].user_id -1 ].username%> 
 
-                    <p>
-                        <div class="message_onComment"><%= comment[i].comment%></div>   
-                    </p>
-                    <hr>
-  
-        </div> 
-                <%}%>  
-        <%}%> 
-    </div>
-                
+                      <p>
+                          <div class="message_onComment"><%= comment[i].comment%></div>   
+                      </p>
+                      <hr>
+                  <%}%>  
+            </div> 
+          <%}%> 
+      </div>
+    </div>       
     <!-- End of Contact Section -->
 
     <footer>
