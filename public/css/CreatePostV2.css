@@ -1,11 +1,4 @@
-.close {
-    position: relative;
-    width: 100%;
-    font-size: 2em;
-    left: 97%;
-    top: -200px;
-    color: black;
-}
+
 
 .profile {
     text-decoration: none;
@@ -77,7 +70,7 @@
   .header-wrapper {
     max-width: 1152px;
     margin: 0 auto;
-    background: #000;
+    background: #ffffff;
     height: 100vh;
   }
   
@@ -562,7 +555,6 @@
   .name {
     position: relative;
     top: 23px;
-    margin-right: 1px;
   }
   
   .btn-logout {

@@ -11,8 +11,8 @@ const { render } = require('ejs');
 
 
 
-//const base_url = "http://localhost:3000";
-const base_url = "http://node60365-projects.proen.app.ruk-com.cloud";
+const base_url = "http://localhost:3000";
+//const base_url = "http://node60365-projects.proen.app.ruk-com.cloud";
 
 var username
 var id_user
@@ -31,13 +31,11 @@ function post(){
 
 app.get("/Create_Post", async(req,res) => {
     try {
-        console.log(username + " this name na")
         const respones = await axios.get(`${base_url}/users`) 
          
          respones.data.map(x=>{
             if(username == x.username) id_user = x.user_id
         })
-        console.log(id_user)
         res.render('CreatePost',{nameuser : username})
     }
     catch(err) {
@@ -58,7 +56,13 @@ app.get("/post/:post_id", async(req,res) => {
          const respones_user = await axios.get(`${base_url}/users`) 
          const respones_post = await axios.get(`${base_url}/posts`) 
          const respones_comment = await axios.get(`${base_url}/comments`) 
-        res.render('PersonalPost' , {nameuser : username , user : respones_user.data , post: respones_post.data , post_id : req.params.post_id , comment : respones_comment.data})
+        res.render('PersonalPost' , {
+            nameuser : username , 
+            user : respones_user.data,
+             post: respones_post.data ,
+              post_id : req.params.post_id , 
+             comment : respones_comment.data
+            })
 
     } catch(err) {
         console.error(err);
@@ -91,6 +95,7 @@ function Login(){
 
             else {
                 if (req.body.username =="admin" || req.body.password =="admin") {
+                    username = req.body.username
                     await axios.post(`${base_url}/user_Post`, user)
                     const respones_post = await axios.get(base_url+'/posts')
                     const respones_user = await axios.get(base_url+'/users')
@@ -98,6 +103,7 @@ function Login(){
                 }
                 else {
                     await axios.post(`${base_url}/user_Post`, user)
+                    username = req.body.username
                     const respones_post = await axios.get(base_url+'/posts')
                     const respones_user = await axios.get(base_url+'/users')
                     res.render('HomePage',{nameuser: req.body.username, user: respones_user.data , post: respones_post.data })
@@ -143,8 +149,8 @@ function Login(){
                     username = req.body.username
                     const respones_post = await axios.get(base_url+'/posts')
                     const respones_user = await axios.get(base_url+'/users')
-                    respones.data.map((x,id)=>{
-                        if(x.username == username) id_user = id+1
+                    respones_user.data.map((x,id)=>{
+                        if(x.username == username) id_user = respones_user.data[id].user_id
                     })
                   
                     res.render('HomePage',{nameuser: req.body.username,user: respones_user.data, post:respones_post.data })
@@ -187,12 +193,11 @@ function Login(){
             }
     
             data.user_id = id_user
-            console.log(data.user_id)
-            console.log(id_user)
+            
+           
              await axios.post(`${base_url}/post_Post`,data) 
              const respones_user = await axios.get(`${base_url}/users`) 
              const respones_post = await axios.get(`${base_url}/posts`) 
-             console.log(req.params.post_id)
           
             res.render('HomePage',{ nameuser : username , user : respones_user.data , post: respones_post.data})
         } catch(err) {
@@ -269,7 +274,6 @@ app.get('/Comment_Post/:post_id' ,async(req, res) => {
         await axios.post(`${base_url}/comment_Post`,data_comment)
         const respones_user = await axios.get(`${base_url}/users`) 
         const respones_post = await axios.get(`${base_url}/posts`) 
-        console.log(data_comment.post_id  + " MTFk")
         res.render('Login')
         //res.render('PersonalPost' , {nameuser : username , comment : req.body.comment , user : respones_user , post : respones_post , post_id: req.params.post_id });
     } catch(err) {
@@ -278,32 +282,6 @@ app.get('/Comment_Post/:post_id' ,async(req, res) => {
     }
 });
 
-
-
-app.get('/Management_User' , async(req,res) => {
-    try {
-        res.render('ManageUser' , {nameuser : username})
-    }catch(err) {
-        console.error(err);
-        res.status(500).send('Management Error')
-    }
-})
-
-app.get('/Management_Post' , async(req,res) => {
-    try {
-        const data = {
-            user_id : req.body.user_id,
-            title : req.body.title,
-            content: req.body.content
-        }
-        const respones_user = await axios.get(`${base_url}/users`) 
-        const respones_post = await axios.get(`${base_url}/posts`) 
-        res.render('ManagePost' , {nameuser : username , post : respones_post.data , user : respones_user.data})
-    }catch(err) {
-        console.error(err);
-        res.status(500).send('Management Error')
-    }
-})
 
 app.get('/Add_User' , async(req,res) => {
     try {
@@ -314,14 +292,30 @@ app.get('/Add_User' , async(req,res) => {
     }
 })
 
-//app.get('/Comment_Post' , async(req, res) => {
-    //try {
-       // res.render('personal_post');
-    //} catch (err) {
-      //  console.error(err);
-        //res.status(500).send('Comment_Post(app.get) Error')
-    //}
-//});
+app.get('/Profile' , async(req,res) => {
+    try {
+        const respones_user = await axios.get(`${base_url}/users`) 
+        const respones_post = await axios.get(`${base_url}/posts`) 
+        res.render('Profile', {nameuser : username , post : respones_post.data , user : respones_user.data,id: id_user})
+    }catch(err) {
+        console.error(err);
+        res.status(500).send('Error at Delete_user')
+    }
+})
+
+app.get('/Delete_User/:id' , async(req,res) => {
+   
+       await axios.delete(base_url+'/user_Delete/' + req.params.id)
+       const alert = "<script>window.location='/' ; alert('Delete account already.')</script>";
+        res.send(alert);
+})
+
+app.get('/Delete_Post/:id' , async(req,res) => {
+    await axios.delete(base_url+'/post_Delete/' + req.params.id)
+    const alert = "<script>window.location='/Profile' ; alert('Delete Post already.')</script>";
+        res.send(alert);
+})
+
 
 Login()
 post()

@@ -30,17 +30,19 @@
             </li>
 
             <li>
-              <a href="#">Popular posts</a>
+              <a href="/Profile">Profile</a>
             </li>
           </ul>
         </nav>
 
+        
         <div class="search-icon">
           <div class="name"><%=nameuser%> </div>
-            <a href="/" class="icon-person"><ion-icon name="person"></ion-icon></a>
-            <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a>
+          <a href="#" class="icon-person"><ion-icon name="person"></ion-icon></a>
+          <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a><span class="text-log">Logout</span>
           <!--<img src="../images_test/search-icon.png" alt="" /> -->
         </div>
+        
 
         <div class="mobile-menu-icon">
           <img src="../images_test/menu-icon.png" alt="" />
@@ -55,10 +57,6 @@
             <li>
               <a href="/Create_post">Create post</a>
             </li>
-
-            <li>
-              <a href="#">Popular posts</a>
-            </li>
           </ul>
           
         </div>
@@ -66,11 +64,7 @@
         <div class="menu-close-icon">
           <img src="../images_test/close-icon.png" alt="" />
         </div>
-        <!--<div class="search-container">
-          <div class="blog-search">
-            <input type="text" />
-            <input type="submit" value="Search" />
-          </div> -->
+     
         </div>
       </div>
     </div>
@@ -97,14 +91,6 @@
         <h2>Latest Blog Posts</h2>
       <%for(let i = post.length-1 ; i >= 0  ; i-- ){ %>  
         <div class="blogpost-card">
-          <div class="thumbnail-image">
-            <div class="post-labels">
-              <img src="../images_test/label-icon.png" alt="" />
-              <a href="#">Technology, </a>
-              <a href="#">Blogging</a>
-            </div>
-            <img src="../images_test/post-thumbnail1.jpg" alt="" />
-          </div>  
           <h3 class="post-title">
             <%=post[i].title%>
           </h3>
@@ -132,47 +118,7 @@
 
       <!-- End of Blogs Section -->
 
-      <div class="popular-posts-container">
-        <h2>Popular Posts</h2>
-
-        <div class="popular-posts">
-          <div class="popular-post">
-            <div class="thumbnail">
-              <img src="../images_test/popular-post1.jpg" alt="" />
-              <h3 class="title">The Post Title</h3>
-            </div>
-          </div>
-
-          <div class="popular-post">
-            <div class="thumbnail">
-              <img src="../images_test/popular-post2.jpg" alt="" />
-              <h3 class="title">The Post Title</h3>
-            </div>
-          </div>
-
-          <div class="popular-post">
-            <div class="thumbnail">
-              <img src="../images_test/popular-post3.jpg" alt="" />
-              <h3 class="title">The Post Title</h3>
-            </div>
-          </div>
-
-          <div class="popular-post">
-            <div class="thumbnail">
-              <img src="../images_test/popular-post1.jpg" alt="" />
-              <h3 class="title">The Post Title</h3>
-            </div>
-          </div>
-
-          <div class="popular-post">
-            <div class="thumbnail">
-              <img src="../images_test/popular-post1.jpg" alt="" />
-              <h3 class="title">The Post Title</h3>
-            </div>
-          </div>
-          
-        </div>
-      </div>
+      
 
       <!-- End of popular posts section -->
 

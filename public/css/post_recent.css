@@ -549,6 +549,7 @@ footer .footer-right p {
 .name {
   position: relative;
   top: 23px;
+  margin-right: 40px;
 }
 
 .btn-logout {
@@ -561,8 +562,9 @@ footer .footer-right p {
   color: #fff;
   font-weight: 500;
   margin-left: 40px;
+  margin-right: 40px;
   bottom: 4px;
-  left: 10px;
+  left: 50px;
   position: relative;
 }
 
@@ -572,5 +574,24 @@ footer .footer-right p {
   position: relative;
   left: -30px;
   top: -10px;
+  cursor: pointer;
 
 }
+
+.btndelete {
+  color: #fff;
+  font-size: 1.5em;
+  position: relative;
+  left: 80px;
+  top: -6px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.text-log {
+  position: relative;
+  left: 15px;
+  bottom: 15px;
+}
+
+

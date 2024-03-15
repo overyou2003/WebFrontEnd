@@ -30,17 +30,13 @@
             <li>
               <a href="/Create_post">Create post</a>
             </li>
-
-            <li>
-              <a href="#">Popular posts</a>
-            </li>
           </ul>
         </nav>
 
         <div class="search-icon">
           <div class="name"><%=nameuser%> </div>
-            <a href="/" class="icon-person"><ion-icon name="person"></ion-icon></a>
-            <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a>
+          <a href="/Profile" class="icon-person"><ion-icon name="person"></ion-icon></a>
+          <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a><span class="text-log">Logout</span>
           <!--<img src="../images_test/search-icon.png" alt="" /> -->
         </div>
 
@@ -85,30 +81,30 @@
 
     <div class="wrapper">
       <section class="posts-wrapper">
-        <h2><%for(let n = 0; n < user.length;n++){%>
-            <%if(post[post_id-1].user_id == user[n].user_id) {%>
-                <%=user[n].username%>'s post
-            <%}%>
-        <%}%></h2>
-
+        <h2><%for(let n = 0; n < post.length;n++){%>
+              <%if(post_id == post[n].post_id){%>
+                <%for(let i = 0; i < user.length;i ++){%>
+                    <%if(post[n].user_id == user[i].user_id) {%>
+                      <%=user[i].username%>
+                      <%break%>
+                    <%}%>
+                <%}%>
+              <%}%>
+            <%}%></h2>
+        
         <div class="blogpost-card">
-          <div class="thumbnail-image">
-            <div class="post-labels">
-              <img src="../images_test/label-icon.png" alt="" />
-              <a href="#">Technology, </a>
-              <a href="#">Blogging</a>
-            </div>
-            <img src="../images_test/post-thumbnail1.jpg" alt="" />
-          </div>  
-          <h3 class="post-title">
-            <%=post[post_id-1].title%>
-          </h3>
           
-
-          <div class="post-body">
-            <p>
-              <%=post[post_id-1].content%>
-            </p>
+          <h3 class="post-title">
+            <%for(let n = 0; n < post.length;n++){%>
+              <%if(post_id == post[n].post_id){%>
+                <%= post[n].title%>
+          </h3> 
+              <div class="post-body">
+                <p>
+                <%= post[n].content%>
+                </p>
+              <%}%>
+            <%}%>
           </div>
         </div>
       </section>

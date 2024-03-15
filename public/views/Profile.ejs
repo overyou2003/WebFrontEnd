@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/Postpersonal.css" />
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="wrapper">
+        <div class="logo-icon">
+          <a href="/Home_user">
+            <img src="../images_test/Debate.png" width="60px" />
+          </a>
+        </div>
+       
+        <nav>
+          <ul>
+            <li>
+              <a href="/Home_user">home</a>
+            </li>
+
+            <li>
+              <a href="/Create_post">Create post</a>
+            </li>
+
+            <li>
+              <a href="/Profile">Profile</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="search-icon">
+          <div class="name"><%=nameuser%> </div>
+          <a href="/Profile" class="icon-person"><ion-icon name="person"></ion-icon></a>
+          <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a><span class="text-log">Logout</span>
+          <a href="/Delete_User/<%=id%>" class="btndelete"><ion-icon name="trash-outline"></ion-icon><span class="textdelete">Delete Accout</span></a>
+          <!--<img src="../images_test/search-icon.png" alt="" /> -->
+        </div>
+
+        <div class="mobile-menu-icon">
+          <img src="../images_test/menu-icon.png" alt="" />
+        </div>
+
+        <div class="mobile-menu-container">
+          <ul>
+            <li>
+              <a href="/Home_user">Home</a>
+            </li>
+
+            <li>
+              <a href="/Create_post">Create post</a>
+            </li>
+
+            <li>
+              <a href="#">Popular posts</a>
+            </li>
+          </ul>
+          
+        </div>
+
+        <div class="menu-close-icon">
+          <img src="../images_test/close-icon.png" alt="" />
+        </div>
+        <!--<div class="search-container">
+          <div class="blog-search">
+            <input type="text" />
+            <input type="submit" value="Search" />
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <header>
+      
+    </header>
+
+    <!-- End of the header -->
+    
+    <div class="wrapper">
+        <section class="posts-wrapper">
+          <h2>MY POSTS</h2>
+          <% let count = 0%>
+          <% let counts = 0%>
+          <%for(let n = 0; n < post.length;n++){%>
+            <% if(id == post[n].user_id) count++%> 
+          <%}%>
+          <%for(let n = 0; n < post.length;n++){%>
+            <% if(id == post[n].user_id){%>
+                <div class="blogpost-card">
+                    <div class="delete-post"><a href="/Delete_Post/<%=post[n].post_id%>"><ion-icon name="trash-outline"></ion-icon></a></div>
+                    <h3 class="post-title">
+                        <%= post[n].title%>
+                    </h3>
+                    <div class="post-body">
+                      <p>
+                        <%= post[n].content%>
+                      </p>
+                        <% counts++ %>
+            <%}%>
+                <%if(count == counts) {%>
+                    <%break%>
+                <%}%>
+                    </div>
+                </div>
+        <%}%>
+        </section>
+    </div>
+  
+      <!-- End of Contact Section -->
+  
+      <footer>
+        <div class="wrapper">
+          <div class="footer-container">
+            <div class="footer-left">
+              <img src="../images_test/Debate.png" width="60px" />
+            </div>
+  
+            <div class="footer-center">
+              <h4 class="list-title">Quick Links</h4>
+  
+              <ul>
+                <li>
+                  <a href="/Home_user">Home</a>
+                </li>
+  
+                <li>
+                  <a href="/Create_post">Create post</a>
+                </li>
+  
+                <li>
+                  <a href="#">Popular posts</a>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="footer-right">
+              <h4 class="list-title">Follow us on</h4>
+  
+              <div class="social-icons">
+                <a href="https://www.instagram.com/dreams.ptp/">
+                  <img src="../images_test/instagram-logo.png" alt="" />
+                </a>
+  
+                <a href="https://www.facebook.com/dreamzzzx/">
+                  <img src="../images_test/facebook-logo.png" alt="" />
+                </a>
+  
+                <a href="https://twitter.com/hopehxpe">
+                  <img src="../images_test/twitter-logo.png" alt="" />
+                </a>
+              </div>
+  
+              <p>I wish this website will be make you happy</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+      <script src="../jsFile/main.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+  </html>
