@@ -130,6 +130,7 @@
           <form action="/Comment_Post" method="post">
               <div class="name_comment">
                   <%=nameuser%>
+                  
               </div>
             <textarea
               name="comment"
@@ -146,8 +147,13 @@
             <div class="name_onComment">
                   <%if(post_id == comment[i].post_id){ %>
                       <span class="person_comment"><ion-icon name="person"></ion-icon></span>
-                      <%= user[comment[i].user_id -1 ].username%> 
-
+                    
+                    <%for(let n = 0; n < user.length;n++){%>
+                      <%if(comment[i].user_id == user[n].user_id){%>
+                        <%=user[n].username%> 
+                        <%break%>
+                        <%}%>  
+                        <%}%>  
                       <p>
                           <div class="message_onComment"><%= comment[i].comment%></div>   
                       </p>

@@ -52,7 +52,10 @@ app.get("/post/:post_id", async(req,res) => {
         const data = {
             user_id : req.body.user_id
         }
+        console.log(username) 
         post_id = req.params.post_id
+      
+        console.log(id_user) 
          const respones_user = await axios.get(`${base_url}/users`) 
          const respones_post = await axios.get(`${base_url}/posts`) 
          const respones_comment = await axios.get(`${base_url}/comments`) 
@@ -236,7 +239,7 @@ app.post('/Comment_Post' ,async(req, res) => {
             post_id : req.body.post_id,
             user_id : req.body.user_id
         }
- 
+        console.log(id_user)
         data.user_id = id_user
         data.post_id = post_id
          await axios.post(base_url + '/comment_Post',data)
