@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/comment.css">
+    <link rel="stylesheet" href="../css/likes.css">
+    <link rel="stylesheet" href="../css/Postpersonal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>Debate</title>
+</head>
+<body>
+    
+    <div class="container">
+        <ion-icon name="person"></ion-icon>
+        <a href="" class="profile">
+        <%for(let n = 0; n < user.length;n++){%>
+            <%if(post[post_id-1].user_id == user[n].user_id) {%>
+                <%=user[n].username%>
+                <%break%>
+            <%}%>
+        <%}%>
+        </a> 
+        <div class="head">
+            <a href="/Home_user"><span class="close"><ion-icon name="close"></ion-icon></span></a>
+            <img src="../images_test/popular-post2.jpg" width="300px" />
+            <h1>
+                <%=post[post_id-1].title%>
+            </h1>
+        </div>        
+        <div class="text">
+            <p>
+                <%=post[post_id-1].content%>
+            </p>
+        </div>
+        <!--
+        <form action="#">
+        
+            <div class="heart-btn">
+            <div class="content">
+                <button type="submit">
+                    <span class="heart"></span>
+                    <span class="textlike">Like</span>
+                    <span class="numb"></span>
+                </button>
+            </div>
+            </div>
+        </form>
+        -->
+
+        <form action="/Comment_Post" method="post">
+            
+           <input type="text" id="comment" name="comment" >
+       
+            <button type="submit" >Send Comment</button>
+        </form>
+
+
+    <script>
+      $(document).ready(function(){
+        $('.content').click(function(){
+          $('.content').toggleClass("heart-active")
+          $('.text').toggleClass("heart-active")
+          $('.numb').toggleClass("heart-active")
+          $('.heart').toggleClass("heart-active")
+        });
+      });
+
+    </script>  
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

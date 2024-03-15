@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/Post_slider.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />    
+</head>
+
+<body>
+    <header>
+        <h2 class="logo"><img src="/images/Debate.png" width="90px"></h2>
+        
+        <form action="" class="search-bar">
+            <input type="text" placeholder="search anything" name="q">
+            <button type="submit"><img src="/images/search.png"></button> 
+        </form>
+        <nav class="navigation">
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <!-- Login -->
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="/Check_user" method="post">
+                <!-- Enter your email -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text"  id="username" name="username"value="">
+                    <label>Username</label>
+                </div>
+                <!-- Enter your Password -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password"  id="password" name="password" value="">
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? 
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Register -->
+        <div class="form-box register">
+            <h2>Register</h2>
+            <form action="/user_Post" method="post">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" id="username" name="username">
+                    <label>Username</label>
+                </div>
+                <!-- Enter your email -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" id="email" name="email">
+                    <label>Email</label>
+                </div>
+                <!-- Enter your Password -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" id="password" name="password">
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? 
+                        <a href="#" class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-welcome">
+        <center>Welcome to Debate website</center>
+        <center>you can press</center>
+        <center><button class="btnlogin2">LOGIN</button>on the top right</center>
+        <center>to Login and Register</center>
+    </div>
+
+
+    
+   
+    
+    
+
+    
+
+    
+    
+
+    
+    <!-- Install script.js -->
+    <script src="jsFile/script.js"></script>
+    <!-- Install Icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!--
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <center><label><input type="checkbox"> Remember me</label></center>
+            </div>
+          
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+    -->
+</body>
+</html>

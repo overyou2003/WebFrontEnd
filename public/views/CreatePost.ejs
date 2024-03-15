@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/CreatePost.css" />
+    <link rel="stylesheet" href="../css/Post.css">
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="wrapper">
+        <div class="logo-icon">
+          <a href="/Home_user">
+            <img src="../images_test/Debate.png" width="60px" />
+          </a>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="/Home_user">Home</a>
+            </li>
+
+            <li>
+              <a href="/Create_post">Create post</a>
+            </li>
+
+            <li>
+              <a href="#">Popular posts</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="search-icon">
+          <div class="name"><%=nameuser%> </div>
+            <a href="/" class="icon-person"><ion-icon name="person"></ion-icon></a>
+            <a href="/" class="btn-logout"><ion-icon name="log-out"></ion-icon></a>
+          <!--<img src="../images_test/search-icon.png" alt="" /> -->
+        </div>
+
+        <div class="mobile-menu-icon">
+          <img src="../images_test/menu-icon.png" alt="" />
+        </div>
+
+        <div class="mobile-menu-container">
+          <ul>
+            <li>
+              <a href="/Home_user">Home</a>
+            </li>
+
+            <li>
+              <a href="/Create_post">Create post</a>
+            </li>
+
+            <li>
+              <a href="#">Popular posts</a>
+            </li>
+          </ul>
+          
+        </div>
+
+        <div class="menu-close-icon">
+          <img src="../images_test/close-icon.png" alt="" />
+        </div>
+        <!--<div class="search-container">
+          <div class="blog-search">
+            <input type="text" />
+            <input type="submit" value="Search" />
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-wrapper">
+        <form action="/Home_user" method="post">
+          <div class="container">
+              <div class="box">
+                  <h3>Create Post</h3>
+                  <a href="/Home_user"><span class="close"><ion-icon name="close"></ion-icon></span></a>
+                  <div class="name-input">
+                      <i class="fas fa-user"></i>
+                      <div class="text"><%= nameuser%></div>
+                  </div>
+                  
+                  <div class="title">
+                      <i><ion-icon name="chatbox-ellipses"></ion-icon></i>
+                      <input type="text" placeholder="Title" id="title" name="title">
+                  </div>
+      
+                  <div class="message-box">
+                      <textarea  cols="30" rows="10" placeholder="Message" id="content" name="content"></textarea>
+                  </div>
+                  <div class="button">
+                      <button id="send" onclick="message()">Post</button>
+                  </div>
+                  <div class="message">
+                      <div class="success" id="success">Your Message Successfully Sent!</div>
+                      <div class="danger" id="danger">Feilds Can't be Empty!</div>
+                  </div>
+              </div>
+          </div>
+      </form>
+      </div>
+    </header>
+
+   
+
+      <!-- End of popular posts section -->
+
+      
+
+
+    <!-- End of Contact Section -->
+
+    <footer>
+      <div class="wrapper">
+        <div class="footer-container">
+          <div class="footer-left">
+            <img src="../images_test/Debate.png" width="60px" />
+          </div>
+
+          <div class="footer-center">
+            <h4 class="list-title">Quick Links</h4>
+
+            <ul>
+              <li>
+                <a href="/Home_user">Home</a>
+              </li>
+
+              <li>
+                <a href="/Create_post">Create post</a>
+              </li>
+
+              <li>
+                <a href="#">Popular posts</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-right">
+            <h4 class="list-title">Follow us on</h4>
+
+            <div class="social-icons">
+              <a href="https://www.instagram.com/dreams.ptp/">
+                <img src="../images_test/instagram-logo.png" alt="" />
+              </a>
+
+              <a href="https://www.facebook.com/dreamzzzx/">
+                <img src="../images_test/facebook-logo.png" alt="" />
+              </a>
+
+              <a href="https://twitter.com/hopehxpe">
+                <img src="../images_test/twitter-logo.png" alt="" />
+              </a>
+            </div>
+
+            <p>I wish this website will be make you happy</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../jsFile/main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
